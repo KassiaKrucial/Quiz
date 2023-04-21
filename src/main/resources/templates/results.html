@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styles.css"
+          th:href="${'css/styles.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+    <title>Ukol-05-Bezdomovci</title>
+</head>
+<body>
+
+    <div class="header">
+
+        <h1>Prof or Hobo? - Results</h1>
+
+    </div>
+
+    <div class="content">
+
+        <h2>You guessed corectly:
+            <span th:text="${resultNumber}">5</span>/8 answers.
+        </h2>
+
+        <ul>
+            <div class="li">
+            <li th:each="image, iterator : ${manFiles}">
+
+                <img th:src="'images/men/' + ${image}"
+                     src="../static/images/men/man1.jpg"
+                     alt="image of a man"
+                     id="man1">
+
+                <label for="man1">
+                    <p>This person is a
+                        <span th:text="${listOfAnswers.get(iterator.index)}">
+                            Hobo
+                        </span>
+                    </p>
+
+                    <p>
+                        Your answer was:
+                        <span th:text="${resultString.get(iterator.index)}">
+                            Hobo
+                        </span>
+                    </p>
+                </label>
+
+            </li>
+            </div>
+
+            <li th:remove="all">
+                <img src="../static/images/men/man2.jpg"
+                     alt="image of a man"
+                     id="man2">
+                <label for="man2">
+                    <p>
+                        Prof - Bill Unruh is a Canadian physicist at UBC.
+                        He discovered the Unruh effect.
+                    </p>
+                    <p>
+                        Your answer is <span th:text="${resultString}"></span>
+                    </p>
+                </label>
+            </li>
+
+            <li th:remove="all">
+                <img src="../static/images/men/man3.jpg"
+                     alt="image of a man"
+                     id="man3">
+                <label for="man3">
+                    <p>
+                        Hobo
+                    </p>
+                    <p>
+                        Your answer is <span th:text="${resultString}"></span>
+                    </p>
+                </label>
+            </li>
+
+            <li th:remove="all">
+                <img src="../static/images/men/man4.jpg"
+                     alt="image of a man"
+                     id="man4">
+                <label for="man4">
+                    <p>
+                        Prof - David Hansen is a computer science professor at
+                        George Fox University.
+                    </p>
+                    <p>
+                        Your answer is <span th:text="${resultString}"></span>
+                    </p>
+                </label>
+            </li>
+
+            <li th:remove="all">
+                <img src="../static/images/men/man5.jpg"
+                     alt="image of a man"
+                     id="man5">
+                <label for="man5">
+                    <p>
+                        Prof - He is a professor of environment at St. Olaf College.
+                    </p>
+                    <p>
+                        Your answer is <span th:text="${resultString}"></span>
+                    </p>
+                </label>
+            </li>
+
+            <li th:remove="all">
+                <img src="../static/images/men/man6.jpg"
+                     alt="image of a man"
+                     id="man6">
+                <label for="man6">
+                    <p>
+                        Hobo
+                    </p>
+                    <p>
+                        Your answer is <span th:text="${resultString}"></span>
+                    </p>
+                </label>
+            </li>
+
+            <li th:remove="all">
+                <img src="../static/images/men/man7.jpg"
+                     alt="image of a man"
+                     id="man7">
+                <label for="man7">
+                    <p>
+                        Hobo
+                    </p>
+                    <p>
+                        Your answer is <span th:text="${resultString}"></span>
+                    </p>
+                </label>
+            </li>
+
+            <li th:remove="all">
+                <img src="../static/images/men/man8.jpg"
+                     alt="image of a man"
+                     id="man8">
+                <label for="man8">
+                    <p>
+                        Prof - Kim Sterelny is noted for his work in the philosophy
+                        of biology.
+                    </p>
+                    <p>
+                        Your answer is <span th:text="${resultString}"></span>
+                    </p>
+                </label>
+            </li>
+
+        </ul>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styles.css"
+          th:href="${'css/styles.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="${'images/favicon.png'}"/>
+    <title>Ukol-05-Bezdomovci</title>
+</head>
+<body>
+
+    <div class="header">
+
+        <h1>Prof or Hobo? - Quiz</h1>
+
+    </div>
+
+    <div class="content">
+        <form method="post">
+
+            <ul>
+
+                <li th:each="image, iterator : ${manFiles}">
+
+                    <img th:src="'images/men/' + ${image}"
+                         src="../static/images/men/man1.jpg"
+                         alt="image of a man"
+                         id="man1">
+
+                    <label for="man1">
+                        <input type="radio"
+                               value="Prof"
+                               th:checked="${answers.answers} == 'Prof'"
+                               th:name="'answers[' + ${iterator.index} + ']'">
+                        <span class="h3">Prof</span>
+                    </label>
+
+                    <label for="man1">
+                        <input type="radio"
+                               value="Hobo"
+                               th:checked="${answers.answers} == 'Hobo'"
+                               th:name="'answers[' + ${iterator.index} + ']'">
+                        <span class="h3">Hobo</span>
+                    </label>
+
+                </li>
+
+                <li th:remove="all">
+                    <img src="../static/images/men/man2.jpg" alt="image of a man" id="man2">
+                    <label for="man2">
+                        <p>
+                            <input type="radio" name="answer[1]" value="Prof">
+                            Prof
+                        </p>
+                    </label>
+                    <label for="man2">
+                        <p>
+                            <input type="radio" name="answer[1]" value="Hobo">
+                            Hobo
+                        </p>
+                    </label>
+                </li>
+
+            </ul>
+
+            <input type="submit" id="submit" name="submit" value="Guess">
+
+        </form>
+    </div>
+</body>
+</html>
